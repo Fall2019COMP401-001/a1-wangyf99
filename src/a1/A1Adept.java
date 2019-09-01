@@ -42,7 +42,10 @@ public class A1Adept {
 				
 				Double[] totalPrice = new Double [consensus];		
 				
+		// Read each person's name, number, fruitNumber, and fruitName into the array and repeat it to each new person
+				
 				for (int x = 0; x < consensus; x++) {
+					
 		// Read values of each person's name into the array	
 					
 					name[x] = scan.next() + " " + scan.next();
@@ -58,13 +61,17 @@ public class A1Adept {
 		// Read values of total price paid for each fruit into the array
 				
 				for (int i=0; i < price.length; i++) {
+					
+					// Read in fruitNumber and fruitName into temporary variables
+					
 					int fruitNumber = scan.nextInt();
 					String fruitName = scan.next();
 					
-					for (int u = 0; u < menu.length; u++) {
-						
-						if (fruitName.equals(menu[u])) {
-							
+					// Compare fruitName to each fruit on the menu until we find the correct one
+					// Calculate out the price each person paid on each fruit and read it into the array of price
+					
+					for (int u = 0; u < menu.length; u++) {						
+						if (fruitName.equals(menu[u])) {							
 							price[i] += fruitNumber * prices[u];
 							
 						}
@@ -85,10 +92,13 @@ public class A1Adept {
 				scan.close();			
 				
 		//Initialize current maximum to first value in array.
+				
 				double cur_max = totalPrice[0];
 				
 		// Starting with second value (if any), compare each value
 		// in array with current minimum and replace if smaller.
+		// keep in track of the index of the minimum value on name
+				
 				int index = 0;
 				for (int i=1; i < totalPrice.length; i++) {
 					if (totalPrice[i] > cur_max) {
@@ -97,6 +107,9 @@ public class A1Adept {
 					}
 					
 				}		
+				
+				// Print results
+				
 				System.out.println("Biggest: " + name[index] + " (" + String.format("%.2f",cur_max) + ")");
 				
 		// Initialize current minimum to first value in array.
@@ -114,14 +127,20 @@ public class A1Adept {
 					} 
 					
 				}
+				
+				// Print results
+				
 				System.out.println("Smallest: " + name[indexSmall] + " (" + String.format("%.2f",cur_min) + ")");
 				
 		// Calculate value average
+				
 				double sum = 0.0;
 				
 				for (int i=0; i<totalPrice.length; i++) {
 					sum += totalPrice[i];
 				}
+				
+				// Print results
 				
 				System.out.println("Average: " + String.format("%.2f", ((double) sum) / ((double) consensus)));
 
@@ -148,59 +167,5 @@ public class A1Adept {
 		
 		return sum;
 	}
-	/* findValueMin
-	 * Finds and returns the minimum value in an array of integers
-	 * 
-	 * Input: array of integers vals
-	 * 
-	 * Output: minimum value found within the array
-	 * 
-	 * Preconditions:
-	 * Input array must not be null and must contain at least one value.
-	 */
-	
-	static int findValueMinAndItsOwner(int[] vals) {
-		
-		// Initialize current minimum to first value in array.
-		int cur_min = vals[0];
-		
-		// Starting with second value (if any), compare each value
-		// in array with current minimum and replace if smaller.
-		
-		for (int i=1; i < vals.length; i++) {
-			if (vals[i] < cur_min) {
-				cur_min = vals[i];
-			}
-		}
-		
-		return cur_min;
-	}
 
-	/* findValueMax
-	 * Finds and returns the maximum value in an array of integers
-	 * 
-	 * Input: array of integers vals
-	 * 
-	 * Output: maximum value found within the array
-	 * 
-	 * Preconditions:
-	 * Input array must not be null and must contain at least one value.
-	 */
-	
-	static int findValueMax(int[] vals) {
-		
-		// Initialize current minimum to first value in array.
-		int cur_max = vals[0];
-		
-		// Starting with second value (if any), compare each value
-		// in array with current minimum and replace if smaller.
-		
-		for (int i=1; i < vals.length; i++) {
-			if (vals[i] > cur_max) {
-				cur_max = vals[i];
-			}
-		}
-		
-		return cur_max;
-	}
 }
