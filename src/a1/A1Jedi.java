@@ -74,7 +74,9 @@ public class A1Jedi {
 					}					
 	
 				}
+		// All input parsed, so close scanner
 				
+				scan.close();		
 
 		// put in the value of the time a fruit appeared into fruitCustomer
 				
@@ -98,3 +100,6 @@ public class A1Jedi {
 				}
 }
 }
+
+
+
