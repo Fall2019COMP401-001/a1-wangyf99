@@ -84,7 +84,7 @@ public class A1Adept {
 				
 				scan.close();			
 				
-		// Initialize current maximum to first value in array.
+		//Initialize current maximum to first value in array.
 				double cur_max = totalPrice[0];
 				
 		// Starting with second value (if any), compare each value

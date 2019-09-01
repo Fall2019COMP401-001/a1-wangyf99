@@ -27,7 +27,7 @@ public class A1Novice {
 				
 				int number = scan.nextInt();
 				
-				// Create an array to store numbers.
+				//Create an array to store numbers.
 				
 				Double[] price = new Double[number];
 				
